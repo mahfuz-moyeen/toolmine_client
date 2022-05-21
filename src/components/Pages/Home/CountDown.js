@@ -32,7 +32,7 @@ const CountDown = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto my-10 bg-white py-3 rounded-br-3xl rounded-tl-3xl'>
+        <div className='w-11/12 mx-auto my-20 bg-white py-3 rounded-br-3xl rounded-tl-3xl'>
             <h1 className='text-center my-5 text-3xl'>Our new products <span className='text-primary'>coming soon</span></h1>
             <div className="grid grid-flow-col gap-5 text-center auto-cols-max justify-center pb-5">
 

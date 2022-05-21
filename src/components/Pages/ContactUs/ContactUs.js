@@ -1,14 +1,18 @@
 import React from 'react';
 import contactBg from '../../../image/contactus/contactUs-bg.jpg'
+
+
 const ContactUs = () => {
+
+    
     return (
         <div style={{ background: `url(${contactBg})`, backgroundSize: 'cover' }}>
             <div className="w-11/12 lg:w-8/12 mx-auto">
                 <div className="flex flex-col lg:flex-row p-10 gap-5 items-center">
                     <div className="text-center lg:text-right">
                         <h1 className="text-3xl font-bold text-white">Do you have Any <span className='text-primary'>Question</span>
-                        <br/> or 
-                        <br/><span className='text-primary'>information ?</span></h1>
+                            <br /> or
+                            <br /><span className='text-primary'>information ?</span></h1>
                         <p className="py-6 font-semibold text-gray-400">You have any problem or you need any information message here. Our support team always help you 24h</p>
                     </div>
                     <div className="card rounded lg:rounded-md flex-shrink-0 w-full max-w-md shadow-2xl glass">

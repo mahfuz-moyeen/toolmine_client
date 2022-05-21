@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ContactUs from '../ContactUs/ContactUs';
 import ToolCard from '../Tools/ToolCard';
 import Banner from "./Banner";
@@ -19,8 +20,8 @@ const Home = () => {
         <div>
             <Banner />
 
-            <div className='w-11/12 mx-auto my-10'>
-                <h1 className='text-white text-center text-3xl font-semibold my-5'>
+            <div className='w-11/12 mx-auto my-20'>
+                <h1 className='text-white text-center text-3xl font-semibold my-10'>
                     <span className='p-1 border-b-2 border-primary'>Our <span className='text-primary'>Product</span></span>
                 </h1>
                 <div className='grid mx-auto grid-cols-1 lg:grid-cols-3 gap-3'>
@@ -30,6 +31,9 @@ const Home = () => {
                             product={product}
                         />)
                     }
+                </div>
+                <div className='flex justify-center'>
+                <Link to='tools' className='btn btn-primary my-5'>See more</Link>
                 </div>
             </div>
 

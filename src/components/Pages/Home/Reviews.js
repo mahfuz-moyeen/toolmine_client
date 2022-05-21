@@ -23,9 +23,9 @@ const Reviews = () => {
         },
     ]
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto my-20'>
             
-            <h1 className='text-white text-center text-3xl font-semibold my-5'>
+            <h1 className='text-white text-center text-3xl font-semibold my-10'>
                 <span className='p-1 border-b-2 border-primary'>Re<span className='text-primary'>views</span></span>
             </h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
