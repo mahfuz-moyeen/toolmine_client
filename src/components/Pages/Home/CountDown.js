@@ -59,7 +59,7 @@ const CountDown = () => {
             </div>
             <div className="form-control mb-5">
                 <div className="input-group justify-center">
-                    <input type="text" placeholder='Your Email' className="border-2 p-2 max-w-sm lg:w-8/12 text-black" />
+                    <input type="text" placeholder='Your Email' className="border-2 border-primary p-2 max-w-sm lg:w-8/12 text-black" />
                     <button className="btn btn-primary">
                         Subscribe Now
                     </button>
