@@ -1,11 +1,8 @@
 import logo from '../../../image/tool_logo.png'
 import { Link, NavLink } from 'react-router-dom'
-import { useState } from 'react';
 
 
 const Menubar = () => {
-    const [open, setOpen] = useState(false);
-
     const menuItems = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
