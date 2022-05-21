@@ -4,6 +4,7 @@ import About from './components/Pages/About/About';
 import Home from './components/Pages/Home/Home';
 import Menubar from './components/Shared/Menubar/Menubar';
 import Login from './components/Pages/Login/Login'
+import Footer from './components/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
