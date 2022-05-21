@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactUs from '../ContactUs/ContactUs';
 import Banner from "./Banner";
 import BusinessSummary from './BusinessSummary';
 import CountDown from './CountDown';
@@ -12,8 +13,10 @@ const Home = () => {
             <BusinessSummary />
 
             <Reviews />
-            
+
             <CountDown />
+
+            <ContactUs />
 
         </div>
     );

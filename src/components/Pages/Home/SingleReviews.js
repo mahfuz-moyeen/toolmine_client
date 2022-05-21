@@ -3,7 +3,7 @@ import React from 'react';
 const SingleReviews = ({ review }) => {
     const { name, text, rate } = review
     return (
-        <div className="card max-w-sm lg:max-w-md bg-white shadow-xl">
+        <div className="card w-10/12 mx-auto lg:max-w-md bg-white shadow-xl">
             <div className="card-body mx-auto text-center">
 
                 <div className="avatar mx-auto">
