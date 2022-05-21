@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 const Menubar = () => {
     const menuItems = <>
         <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/tools">Tools</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         {/* {
             user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>

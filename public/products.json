@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name": "Demolition Driver",
+        "img": "https://i.ibb.co/Z2y0yDt/Demolition-Driver.png",
+        "price": 20,
+        "minQuantity": 100,
+        "availableQuantity": 1000,
+        "description": "Demolition Driver features a reinforced full-metal core designed to give you maximum job site toughness and durability."
+    },
+    {
+        "id": 2,
+        "name": "Claw Hammer",
+        "img": "https://i.ibb.co/TtCRLfK/hammer.png",
+        "price": 70,
+        "minQuantity": 100,
+        "availableQuantity": 1000,
+        "description": "Smooth Face Rip Claw Hammer is designed for the Best Driving Performance. Its precision balanced design provides strong and smooth striking power."
+    },
+    {
+        "id": 3,
+        "name": "Pry Bars",
+        "img": "https://i.ibb.co/n18jw4b/Pry-Bars.png",
+        "price": 50,
+        "minQuantity": 100,
+        "availableQuantity": 1000,
+        "description": "Our Pry Bars feature an I-Beam design for up to 40% more prying strength. The pry bar's all-metal core improves durability, allowing our users to get the job done every time."
+    },
+    {
+        "id": 4,
+        "name": "Jobsite Straight Scissors",
+        "img": "https://i.ibb.co/bNHnKr5/Jobsite-Straight-Scissors.png",
+        "price": 40,
+        "minQuantity": 100,
+        "availableQuantity": 1000,
+        "description": "Our Jobsite Straight Scissors feature all-metal handles for added durability and up to 10X Longer Life. The construction scissors include a smooth cutting edge for burr-free cuts."
+    },
+    {
+        "id": 5,
+        "name": "Rasping Jab Saw",
+        "img": "https://i.ibb.co/WPw6ctj/saw.png",
+        "price": 90,
+        "minQuantity": 100,
+        "availableQuantity": 1000,
+        "description": "Our Rasping Jab Saw is the only jab saw on the market to integrate rasping holes along the side of the blade to rapidly expand holes or smooth rough edges of sheetrock after a cut has been made."
+    },
+    {
+        "id": 6,
+        "name": "Fiberglass Bolt Cutter",
+        "img": "https://i.ibb.co/6rpQTV3/Fiberglass-Bolt-Cutter.png",
+        "price": 100,
+        "minQuantity": 100,
+        "availableQuantity": 1000,
+        "description": "Our Fiberglass Bolt Cutters with PIVOTMOVE™ Rotating Handles are engineered to give you the best access and are available in 18' and 24' sizes."
+    },
+    {
+        "id": 7,
+        "name": "Combination Pliers",
+        "img": "https://i.ibb.co/18Bzd4z/Combination-Pliers.png",
+        "price": 80,
+        "minQuantity": 100,
+        "availableQuantity": 1000,
+        "description": "Our 7-in-1 High-Leverage Combination Pliers feature seven core functions for electrical installation. The wide jaw pliers make grabbing and twisting wire easy."
+    }
+]

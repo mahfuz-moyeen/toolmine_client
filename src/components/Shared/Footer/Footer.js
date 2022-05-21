@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../../image/tool_logo.png'
 const Footer = () => {
     return (
-        <div className='mt-10'>
+        <div>
             <footer className="footer p-10 bg-accent text-base-100">
                 <div>
                     <div className='flex items-center gap-1'>
