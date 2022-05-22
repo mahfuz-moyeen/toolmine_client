@@ -22,10 +22,12 @@ const CountDown = () => {
         setMin(min - 1)
         setValue(60)
     }
+
     if (min === 0) {
         setHour(hour - 1)
         setMin(60)
     }
+    
     if (hour === 0) {
         setDay(day - 1)
         setHour(24)

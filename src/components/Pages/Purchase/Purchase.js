@@ -3,12 +3,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import {  toast } from 'react-toastify';
 
 const Purchase = () => {
     const { id } = useParams();
     const [user] = useAuthState(auth);
 
-    const { register, formState: { errors }, handleSubmit, setValue } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
     const [product, setProduct] = useState({})
 
@@ -20,7 +21,31 @@ const Purchase = () => {
 
 
     const onSubmit = async data => {
-         console.log(data);
+        const orderData = {
+            productName: product.name,
+            price: product.price,
+            img: product.img,
+            name: user.displayName,
+            email: user.email,
+            phone: data.phone,
+            address: data.address,
+            orderQuantity: data.items
+        }
+
+        await fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(res=>res.json())
+        .then(date=>{
+            console.log(data);
+            toast.success("Successfully, Add Your Purchase Items")
+        })
+
+
     };
 
     return (
@@ -60,7 +85,7 @@ const Purchase = () => {
                                 </div>
                                 <div className='card w-full'>
                                     <form className='card-body' onSubmit={handleSubmit(onSubmit)}>
-                                        <h1>Hello, {user?.displayName}</h1>
+                                        <h1 className='text-xl'>Hello {user?.displayName}, <br />Do you want to purchase our items</h1>
                                         {/* name  */}
                                         <div className="form-control">
                                             <label className="label">
@@ -156,7 +181,9 @@ const Purchase = () => {
                                             />
                                             <label className="label">
                                                 {errors.items?.type === 'required' && <span className="label-text-alt text-red-500">{errors.items.message}</span>}
+
                                                 {errors.items?.type === 'min' && <span className="label-text-alt text-red-500">You have to Purchase minimum {product?.minQuantity} items</span>}
+
                                                 {errors.items?.type === 'max' && <span className="label-text-alt text-red-500">You can't Purchase up to available {product?.availableQuantity} items</span>}
                                             </label>
                                         </div>

@@ -11,11 +11,14 @@ import Dashboard from './components/Pages/Dashboard/Dashboard';
 import RequireAuth from './components/Pages/Login/RequireAuth';
 import Purchase from './components/Pages/Purchase/Purchase';
 import Blog from './components/Pages/Blog/Blog';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
       <Menubar />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />

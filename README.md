@@ -10,3 +10,4 @@
 * Tailwind
 * DaisyUI
 * heroicons
+* react-toastify
