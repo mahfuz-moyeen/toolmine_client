@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import Spinner from '../../Shared/Spinner.js/Spinner';
 import ContactUs from '../ContactUs/ContactUs';
 import ToolCard from '../Tools/ToolCard';
 import Banner from "./Banner";
@@ -8,13 +10,13 @@ import CountDown from './CountDown';
 import Reviews from './Reviews';
 
 const Home = () => {
-    const [products, setProducts] = useState([])
+    const { isLoading, data: products } = useQuery('products', () => fetch('http://localhost:5000/products')
+        .then(res => res.json())
+    )
 
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+    if (isLoading) {
+        return <Spinner />
+    }
 
     return (
         <div>
@@ -27,13 +29,13 @@ const Home = () => {
                 <div className='grid mx-auto grid-cols-1 lg:grid-cols-3 gap-3'>
                     {
                         products.slice(0, 3).map(product => <ToolCard
-                            key={product.id}
+                            key={product._id}
                             product={product}
                         />)
                     }
                 </div>
                 <div className='flex justify-center'>
-                <Link to='tools' className='btn btn-primary my-5'>See more</Link>
+                    <Link to='tools' className='btn btn-primary my-5'>See more</Link>
                 </div>
             </div>
 

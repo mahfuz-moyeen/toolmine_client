@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useQuery } from 'react-query';
+import Spinner from '../../Shared/Spinner.js/Spinner';
 import ToolCard from './ToolCard';
 
 const Tools = () => {
-    const [products, setProducts] = useState([])
+    const { isLoading, data: products } = useQuery('products', () => fetch('http://localhost:5000/products')
+        .then(res => res.json())
+    )
 
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+    if (isLoading) {
+        return <Spinner />
+    }
 
     return (
         <div className='w-11/12 mx-auto my-10'>
@@ -19,7 +21,7 @@ const Tools = () => {
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
                 {
                     products.map(product => <ToolCard
-                        key={product.id}
+                        key={product._id}
                         product={product}
                     />)
                 }
