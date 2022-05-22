@@ -38,18 +38,25 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
             <td className='bg-white'>
                 {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} className='btn btn-sm btn-success'>Pay Now</Link>}
 
-                {(order.price && order.paid) && <p><span className='text-success'>Paid</span></p>}
+                {(order.price && order.paid) && <p><span className=' badge badge-lg badge-outline badge-success'>Paid</span></p>}
+                {order.transactionId && <p><span className='badge my-2 py-1'>Transaction Id: {order.transactionId}</span></p>}
 
             </td>
             <td className='bg-white'>
                 {/* delete button  */}
-                <div className="tooltip" data-tip="Delete Item">
-                    <button >
-                        <label htmlFor={order._id} className="btn bg-rose-600 border-0 hover:bg-rose-700 font-medium" >
-                            <TrashIcon className="h-5 w-5" />
-                        </label>
-                    </button>
-                </div>
+                {(
+                    order.price && !order.paid)
+                    &&
+                    <div className="tooltip" data-tip="Delete Item">
+                        <button >
+                            <label htmlFor={order._id} className="btn bg-rose-600 border-0 hover:bg-rose-700 font-medium" >
+                                <TrashIcon className="h-5 w-5" />
+                            </label>
+                        </button>
+                    </div>
+
+                }
+
                 {/* modal  */}
                 <input type="checkbox" id={_id} className="modal-toggle" />
                 <div className="modal">
