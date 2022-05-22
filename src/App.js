@@ -14,10 +14,10 @@ import Blog from './components/Pages/Blog/Blog';
 import MyOrder from './components/Pages/Dashboard/MyOrder';
 import AddReview from './components/Pages/Dashboard/AddReview';
 import MyProfile from './components/Pages/Dashboard/MyProfile';
+import Payment from './components/Pages/Dashboard/Payment';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Payment from './components/Pages/Dashboard/Payment';
 
 function App() {
   return (

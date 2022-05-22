@@ -11,3 +11,5 @@
 * DaisyUI
 * heroicons
 * react-toastify
+* react-rating
+* 

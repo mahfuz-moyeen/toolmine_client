@@ -3,11 +3,11 @@ import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import Spinner from '../../Shared/Spinner/Spinner';
 import ContactUs from '../ContactUs/ContactUs';
+import Reviews from '../Reviews/Reviews';
 import ToolCard from '../Tools/ToolCard';
 import Banner from "./Banner";
 import BusinessSummary from './BusinessSummary';
 import CountDown from './CountDown';
-import Reviews from './Reviews';
 
 const Home = () => {
     const { isLoading, data: products } = useQuery('products', () => fetch('http://localhost:5000/products')
