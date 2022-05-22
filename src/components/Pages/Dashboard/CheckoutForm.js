@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
     const [transactionId, setTransactionId] = useState('');
 
     useEffect(() => {
-        fetch('create-payment-intent', {
+        fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -92,7 +92,7 @@ const CheckoutForm = ({ order }) => {
                 orderQuantity: orderQuantity,
                 price: parseInt(price) * parseInt(orderQuantity),
             }
-            fetch(`https://doctor-portal001.herokuapp.com/booking/${_id}`, {
+            fetch(`http://localhost:5000/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
