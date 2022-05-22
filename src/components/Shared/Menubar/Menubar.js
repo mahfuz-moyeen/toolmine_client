@@ -1,16 +1,21 @@
 import logo from '../../../image/tool_logo.png'
 import { Link, NavLink } from 'react-router-dom'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 
 const Menubar = () => {
+    const [user] = useAuthState(auth)
+
     const menuItems = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/tools">Tools</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
-        {/* {
+        {
             user && <li><NavLink to="/dashboard">Dashboard</NavLink></li>
         }
-        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li> */}
+        <li><NavLink to="/blogs">Blogs</NavLink></li>
+        <li><NavLink to="/about">About</NavLink></li>
     </>
 
 
@@ -23,7 +28,7 @@ const Menubar = () => {
                     </label>
                     <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52">
                         {menuItems}
-                        <li><NavLink to="/login">Login</NavLink></li>
+                        <li>{user ? <button className="btn btn-accent text-white" onClick={() => signOut(auth)} >LogOut</button> : <NavLink to="/login">Login</NavLink>}</li>
                     </ul>
                 </div>
                 <Link to='/' className="btn btn-ghost normal-case text-xl flex items-center">
@@ -43,7 +48,7 @@ const Menubar = () => {
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 gap-2">
-                    <li><NavLink to="/login">Login</NavLink></li>
+                    <li>{user ? <button className="btn btn-accent text-white" onClick={() => signOut(auth)} >LogOut</button> : <NavLink to="/login">Login</NavLink>}</li>
                 </ul>
             </div>
             {/* <div className="navbar-end">

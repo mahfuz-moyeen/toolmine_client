@@ -7,6 +7,10 @@ import Login from './components/Pages/Login/Login'
 import Footer from './components/Shared/Footer/Footer';
 import Tools from './components/Pages/Tools/Tools';
 import Register from './components/Pages/Login/Register';
+import Dashboard from './components/Pages/Dashboard/Dashboard';
+import RequireAuth from './components/Pages/Login/RequireAuth';
+import Purchase from './components/Pages/Purchase/Purchase';
+import Blog from './components/Pages/Blog/Blog';
 
 function App() {
   return (
@@ -15,8 +19,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />
-        <Route path="about" element={<About />} />
         <Route path="tools" element={<Tools />} />
+
+        <Route path="tool/:id" element={<RequireAuth><Purchase /></RequireAuth>} />
+        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
+
+        <Route path="blogs" element={<Blog />} />
+        <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
       </Routes>

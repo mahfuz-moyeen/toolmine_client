@@ -44,7 +44,7 @@ const Login = () => {
 
     return (
         <div>
-            <div className="">
+            <div className=' bg-neutral'>
                 <div className="hero min-h-screen lg:max-w-md mx-auto max-w-sm">
                     <div className="card  w-full shadow-2xl bg-white my-10">
                         <div className="card-body">

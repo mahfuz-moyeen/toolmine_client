@@ -36,7 +36,7 @@ const CountDown = () => {
             <h1 className='text-center my-5 text-3xl'>Our new products <span className='text-primary'>coming soon</span></h1>
             <div className="grid grid-flow-col gap-5 text-center auto-cols-max justify-center pb-5">
 
-                <span class="countdown hidden">
+                <span className="countdown hidden">
                     <span style={{ value: value }}></span>
                 </span>
 
