@@ -52,7 +52,7 @@ const Home = () => {
                 </h1>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
                     {
-                        reviews.slice(0, 3).map(review => <SingleReviews
+                        reviews?.slice(0, 3).map(review => <SingleReviews
                             key={review._id}
                             review={review}
                         />)

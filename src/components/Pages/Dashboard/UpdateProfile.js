@@ -1,10 +1,15 @@
+import { async } from '@firebase/util';
 import React from 'react';
+import { useUpdateProfile } from 'react-firebase-hooks/auth';
+
 import { toast } from 'react-toastify';
+import auth from '../../../firebase.init';
 
 const UpdateProfile = ({ showUser, setShowUser, refetch }) => {
     const { userName, email } = showUser;
+    const [updateProfile] = useUpdateProfile(auth);
 
-    const handleModalForm = event => {
+    const handleModalForm = async event => {
         event.preventDefault();
         const userName = event.target.name.value;
         const phone = event.target.phone.value;
@@ -22,7 +27,7 @@ const UpdateProfile = ({ showUser, setShowUser, refetch }) => {
         console.log(data);
         setShowUser(null)
 
-        fetch(`http://localhost:5000/user/${email}`, {
+        await fetch(`http://localhost:5000/user/${email}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
@@ -42,6 +47,8 @@ const UpdateProfile = ({ showUser, setShowUser, refetch }) => {
 
                 refetch();
             })
+
+        await updateProfile({ displayName: userName });
 
     }
 
