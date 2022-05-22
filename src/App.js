@@ -11,6 +11,10 @@ import Dashboard from './components/Pages/Dashboard/Dashboard';
 import RequireAuth from './components/Pages/Login/RequireAuth';
 import Purchase from './components/Pages/Purchase/Purchase';
 import Blog from './components/Pages/Blog/Blog';
+import MyOrder from './components/Pages/Dashboard/MyOrder';
+import AddReview from './components/Pages/Dashboard/AddReview';
+import MyProfile from './components/Pages/Dashboard/MyProfile';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,16 +25,21 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="home" element={<Home />} />
-        <Route path="tools" element={<Tools />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/tools" element={<Tools />} />
 
         <Route path="tool/:id" element={<RequireAuth><Purchase /></RequireAuth>} />
-        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<MyProfile />} />
+          <Route path='my-profile' element={<MyProfile />} />
+          <Route path="my-order" element={<MyOrder />} />
+          <Route path="add-reviews" element={<AddReview />} />
+        </Route>
 
-        <Route path="blogs" element={<Blog />} />
-        <Route path="about" element={<About />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+        <Route path="/blogs" element={<Blog />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </div>

@@ -9,7 +9,7 @@ const Purchase = () => {
     const { id } = useParams();
     const [user] = useAuthState(auth);
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const [product, setProduct] = useState({})
 
@@ -43,6 +43,7 @@ const Purchase = () => {
         .then(date=>{
             console.log(data);
             toast.success("Successfully, Add Your Purchase Items")
+            reset();
         })
 
 

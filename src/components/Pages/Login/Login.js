@@ -5,6 +5,7 @@ import auth from '../../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Spinner from '../../Shared/Spinner.js/Spinner';
 import SocialLogin from './SocialLogin';
+import useToken from '../../../hooks/useToken';
 
 
 const Login = () => {
@@ -14,17 +15,17 @@ const Login = () => {
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-
+    const [token] = useToken(user);
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, navigate, from])
+    }, [token, navigate, from])
 
     if (loading || sending) {
         return <Spinner />
@@ -33,6 +34,7 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
+
     };
 
     const handleForgetPassword = event => {

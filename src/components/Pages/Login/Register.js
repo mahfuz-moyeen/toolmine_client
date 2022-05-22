@@ -5,6 +5,7 @@ import auth from '../../../firebase.init';
 import Spinner from '../../Shared/Spinner.js/Spinner';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from './SocialLogin';
+import useToken from '../../../hooks/useToken';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -19,16 +20,17 @@ const Register = () => {
     const [updateProfile, updating] = useUpdateProfile(auth);
     const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
+    const [token] = useToken(user);
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, navigate, from])
+    }, [token, navigate, from])
 
 
     if (loading || updating || sending) {
