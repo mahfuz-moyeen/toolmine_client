@@ -6,6 +6,7 @@
 * firebase
 * react firebase hook
 * react hook form
+* react query
 * Tailwind
 * DaisyUI
 * heroicons
