@@ -18,6 +18,7 @@ import Payment from './components/Pages/Dashboard/Payment';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Reviews from './components/Pages/Reviews/Reviews';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="add-reviews" element={<AddReview />} />
         </Route>
 
+        <Route path="/reviews" element={<Reviews />} />
         <Route path="/blogs" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />

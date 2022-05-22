@@ -1,11 +1,76 @@
-import React from 'react';
+import { PencilIcon } from '@heroicons/react/solid';
+import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
+import auth from '../../../firebase.init';
+import Spinner from '../../Shared/Spinner/Spinner';
+import UpdateProfile from './UpdateProfile';
 
 const MyProfile = () => {
+    const [user] = useAuthState(auth)
+    const [showUser, setShowUser] = useState(null);
+
+    const { isLoading, data, refetch } = useQuery(('user'), () => fetch(`http://localhost:5000/user/${user.email}`, {
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+        .then(res => res.json())
+    )
+
+    if (isLoading) {
+        return <Spinner />
+    }
+
     return (
         <div className='w-11/12 mx-auto'>
             <h1 className='text-white text-center text-3xl font-semibold my-10'>
                 <span className='p-1 border-b-2 border-primary'>My <span className='text-primary'>Profile</span></span>
             </h1>
+            <div className='card w-10/12 mx-auto shadow-lg bg-white'>
+                <div className="card-body lg:w-7/12">
+
+                    <div>
+                        <div className='flex justify-between items-center'>
+                            <h2 className="text-xl font-semibold my-5 lg:text-4xl">{data[0].userName}</h2>
+
+                            {/* text edit button  */}
+                            <div className="tooltip" data-tip="Text Edit">
+                                <button className='text-indigo-700 hover:text-rose-500'>
+                                    <label htmlFor='updateUser-modal' onClick={() => setShowUser(data[0])} >
+                                        <PencilIcon className="h-6 w-6 cursor-pointer " />
+                                    </label>
+                                </button>
+                            </div>
+                        </div>
+
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Email:</span> {data[0].email}</p>
+
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Education:</span> { }</p>
+
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Location:</span> { }</p>
+
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Phone number:</span> { }</p>
+
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'> LinkedIn profile:</span> { }</p>
+
+                    </div>
+
+                    <div className="card-actions flex-col lg:flex-row justify-between">
+
+
+                    </div>
+                </div>
+                {
+                    showUser &&
+                    <UpdateProfile
+                        showUser={showUser}
+                        setShowUser={setShowUser}
+                        refetch={refetch}
+                    />
+                }
+            </div>
         </div>
     );
 };
