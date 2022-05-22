@@ -6,6 +6,7 @@ import Menubar from './components/Shared/Menubar/Menubar';
 import Login from './components/Pages/Login/Login'
 import Footer from './components/Shared/Footer/Footer';
 import Tools from './components/Pages/Tools/Tools';
+import Register from './components/Pages/Login/Register';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="tools" element={<Tools />} />
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Routes>
       <Footer />
     </div>

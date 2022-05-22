@@ -1,19 +1,23 @@
 import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
-import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Spinner from '../../Shared/Spinner.js/Spinner';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from './SocialLogin';
 
-
-const Login = () => {
+const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
 
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-
+    const [updateProfile, updating] = useUpdateProfile(auth);
+    const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
 
     const navigate = useNavigate();
@@ -26,21 +30,17 @@ const Login = () => {
         }
     }, [user, navigate, from])
 
-    if (loading || sending) {
+
+    if (loading || updating || sending) {
         return <Spinner />
     }
 
 
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password);
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+        await sendEmailVerification();
     };
-
-    const handleForgetPassword = event => {
-        event.preventDefault();
-        const email = event.target.email.value;
-        console.log(email);
-        sendPasswordResetEmail(email);
-    }
 
     return (
         <div>
@@ -48,10 +48,31 @@ const Login = () => {
                 <div className="hero min-h-screen lg:max-w-md mx-auto max-w-sm">
                     <div className="card  w-full shadow-2xl bg-white my-10">
                         <div className="card-body">
-                            <h1 className='text-center text-2xl'>Login</h1>
+                            <h1 className='text-center text-2xl'>Register</h1>
 
 
                             <form onSubmit={handleSubmit(onSubmit)}>
+
+                                {/* name  */}
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Your Name"
+                                        className="input input-bordered bg-white"
+                                        {...register("name", {
+                                            required: {
+                                                value: true,
+                                                message: 'Name is Required'
+                                            }
+                                        })}
+                                    />
+                                    <label className="label">
+                                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                    </label>
+                                </div>
 
                                 {/* email  */}
                                 <div className="form-control">
@@ -111,12 +132,6 @@ const Login = () => {
                                     </label>
                                 </div>
 
-
-                                <label
-                                    htmlFor="forget-password-modal"
-                                    className="label label-text-alt link link-hover">
-                                    Forgot password?
-                                </label>
                                 {
                                     error ?
                                         <p className='text-center text-red-500 my-2'>{error.message.slice(22)}</p>
@@ -124,13 +139,13 @@ const Login = () => {
                                         <></>
                                 }
                                 <div className="form-control mt-6">
-                                    <input type='submit' value='Login' className="btn btn-primary" />
+                                    <input type='submit' value='Register' className="btn btn-primary" />
                                 </div>
 
                             </form>
 
-                            <p className='text-center my-2'>Don't have an account?
-                                <Link to='/register' className='text-primary' >Create new account</Link>
+                            <p className='text-center my-2'>Already have account
+                                <Link to='/login' className='text-primary' > Login now</Link>
                             </p>
 
                             <SocialLogin />
@@ -138,28 +153,8 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <input type="checkbox" id="forget-password-modal" className="modal-toggle" />
-                <div className="modal modal-middle">
-                    <div className="modal-box bg-white">
-                        <label htmlFor="forget-password-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-
-                        <h3 className="font-bold text-xl text-center mt-10 text-primary">Forget Password ?</h3>
-                        <p className='text-center px-10 py-3'>Please enter your email address to send reset password mail.</p>
-                        <form
-                            onSubmit={handleForgetPassword}
-                            className='flex flex-col justify-center items-center gap-5 mt-10'>
-
-                            <input type="email" name='email' placeholder='Your Email' className="input w-full border-base-300 bg-white" required />
-
-                            <input type='submit' value='Send' className='btn btn-accent text-base' />
-                        </form>
-
-                    </div>
-                </div>
-            </div >
         </div>
     );
 };
 
-export default Login;
+export default Register;
