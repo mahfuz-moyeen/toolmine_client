@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { toast } from 'react-toastify';
 
 const CheckoutForm = ({ order }) => {
     const stripe = useStripe();
@@ -20,8 +21,8 @@ const CheckoutForm = ({ order }) => {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('token')}`
             },
-            body: JSON.stringify({ 
-                price: parseInt(price) * parseInt(orderQuantity) 
+            body: JSON.stringify({
+                price: parseInt(price) * parseInt(orderQuantity)
             })
         })
             .then(res => res.json())
@@ -31,7 +32,7 @@ const CheckoutForm = ({ order }) => {
                 }
             });
 
-    }, [price,orderQuantity])
+    }, [price, orderQuantity])
 
 
     const handleSubmit = async (event) => {
@@ -103,6 +104,7 @@ const CheckoutForm = ({ order }) => {
                 .then(data => {
                     setProcessing(false);
                     console.log(data);
+                    toast.success("Payment Successfully")
                 })
             console.log(paymentMethod, processing);
         }
