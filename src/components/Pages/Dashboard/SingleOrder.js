@@ -26,8 +26,8 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
         <tr>
             <th className='bg-white'>{index + 1}</th>
             <td className='bg-white'>
-                <div class="avatar">
-                    <div class="w-16 mask mask-squircle">
+                <div className="avatar">
+                    <div className="w-16 mask mask-squircle">
                         <img src={img} alt={productName} />
                     </div>
                 </div>

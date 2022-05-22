@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Spinner from '../../Shared/Spinner.js/Spinner';
+import Spinner from '../../Shared/Spinner/Spinner';
 import SocialLogin from './SocialLogin';
 import useToken from '../../../hooks/useToken';
 

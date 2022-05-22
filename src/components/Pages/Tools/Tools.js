@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import Spinner from '../../Shared/Spinner.js/Spinner';
+import Spinner from '../../Shared/Spinner/Spinner';
 import ToolCard from './ToolCard';
 
 const Tools = () => {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import Spinner from '../../Shared/Spinner.js/Spinner';
+import Spinner from '../../Shared/Spinner/Spinner';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from './SocialLogin';
 import useToken from '../../../hooks/useToken';

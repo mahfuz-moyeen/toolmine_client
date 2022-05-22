@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import Spinner from '../../Shared/Spinner.js/Spinner';
+import Spinner from '../../Shared/Spinner/Spinner';
 import ContactUs from '../ContactUs/ContactUs';
 import ToolCard from '../Tools/ToolCard';
 import Banner from "./Banner";
