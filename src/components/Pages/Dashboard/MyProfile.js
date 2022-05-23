@@ -29,7 +29,7 @@ const MyProfile = () => {
                 <span className='p-1 border-b-2 border-primary'>My <span className='text-primary'>Profile</span></span>
             </h1>
             <div className='card w-10/12 mx-auto shadow-lg bg-white'>
-                <div className="card-body lg:w-7/12">
+                <div className="card-body">
 
                     <div>
                         <div className='flex justify-between items-center'>
@@ -47,14 +47,14 @@ const MyProfile = () => {
 
                         <p className=" lg:text-xl my-2"><span className=' font-semibold'>Email: </span> {data[0].email}</p>
 
-                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Phone number: </span> {data[0].phone ? data[0].phone : "No data , please update "}</p>
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Phone number: </span> {data[0].phone ? data[0].phone : "No data , please click pencil button to  update  profile"}</p>
 
-                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Education: </span> {data[0].education ? data[0].education : "No data , please update "}</p>
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Education: </span> {data[0].education ? data[0].education : "No data , please click pencil button to  update  profile "}</p>
 
-                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Location: </span>{data[0].location ? data[0].location : "No data , please update "}</p>
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Location: </span>{data[0].location ? data[0].location : "No data , please click pencil button to  update  profile"}</p>
 
 
-                        <p className=" lg:text-xl my-2"><span className=' font-semibold'> LinkedIn profile: </span>{data[0].linkedIn ? data[0].linkedIn : "No data , please update "}</p>
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'> LinkedIn profile: </span>{data[0].linkedIn ? data[0].linkedIn : "No data , please click pencil button to  update  profile"}</p>
 
                     </div>
 
