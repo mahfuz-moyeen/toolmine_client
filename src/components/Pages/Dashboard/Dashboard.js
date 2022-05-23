@@ -1,8 +1,13 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { ChevronDoubleRightIcon } from '@heroicons/react/solid';
+import useAdmin from '../../../hooks/useAdmin';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Dashboard = () => {
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
     return (
         <div className="drawer drawer-mobile">
             <input id="dashboard" type="checkbox" className="drawer-toggle" />
@@ -19,23 +24,26 @@ const Dashboard = () => {
                 <ul className="menu p-4 overflow-y-auto w-48 bg-neutral text-white gap-2">
                     {/* <!-- Sidebar content here --> */}
 
-                    {/* for user  */}
                     <li><NavLink to='/dashboard/my-profile'>My Profile</NavLink></li>
-                    <li><NavLink to='/dashboard/my-order'>My Orders</NavLink></li>
-                    <li><NavLink to='/dashboard/add-reviews'>Add A Review</NavLink></li>
+
+                    {/* for user  */}
+                    {
+                        !admin && <>
+                            <li><NavLink to='/dashboard/my-order'>My Orders</NavLink></li>
+                            <li><NavLink to='/dashboard/add-reviews'>Add A Review</NavLink></li>
+                        </>
+                    }
 
                     {/* for admin  */}
-                    <li><NavLink to='/dashboard/make-admin'>Make Admin</NavLink></li>
-                    <li><NavLink to='/dashboard/manage-products'>Manage Products</NavLink></li>
-                    <li><NavLink to='/dashboard/add-product'>Add Product</NavLink></li>
-                    <li><NavLink to='/dashboard/manage-orders'>Manage Orders</NavLink></li>
+                    {
+                        admin && <>
+                            <li><NavLink to='/dashboard/make-admin'>Make Admin</NavLink></li>
+                            <li><NavLink to='/dashboard/manage-products'>Manage Products</NavLink></li>
+                            <li><NavLink to='/dashboard/add-product'>Add Product</NavLink></li>
+                            <li><NavLink to='/dashboard/manage-orders'>Manage Orders</NavLink></li>
+                        </>
+                    }
 
-
-                    {/* {admin && <>
-                        <li><NavLink to='/dashboard/users'>All User</NavLink></li>
-                        <li><NavLink to='/dashboard/add-doctor'>Add new doctor</NavLink></li>
-                        <li><NavLink to='/dashboard/manage-doctor'>Manage doctor</NavLink></li>
-                    </>} */}
                 </ul>
 
             </div>
