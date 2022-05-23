@@ -2,14 +2,64 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../../firebase.init';
+import { toast } from 'react-toastify';
 
 const AddProduct = () => {
     const [user] = useAuthState(auth);
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
+    const imageStorageKey = '86f5dca2ba21afd9927d840cd5b6d0c0';
+
     const onSubmit = async data => {
-        console.log(data);
+        const img = data.img[0];
+        const formData = new FormData();
+        formData.append('image', img);
+
+        // imgbb.com database
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.success) {
+                    const img = result.data.url;
+                    const product = {
+                        name: data.name,
+                        description: data.description,
+                        price: parseInt(data.price),
+                        minQuantity: parseInt(data.minQuantity),
+                        availableQuantity: parseInt(data.availableQuantity),
+                        img: img
+                    }
+
+
+                    // post to mongodb server
+                    fetch('http://localhost:5000/product', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${localStorage.getItem('token')}`
+                        },
+                        body: JSON.stringify(product)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            console.log(inserted);
+                            if (inserted.insertedId) {
+                                toast.success('Add your product successfully')
+                                reset();
+                            }
+                            else {
+                                toast.error('Failed to add the your product');
+                            }
+                        })
+
+                }
+
+            })
     }
 
     return (
