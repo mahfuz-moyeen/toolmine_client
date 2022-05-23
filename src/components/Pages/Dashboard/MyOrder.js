@@ -34,7 +34,7 @@ const MyOrder = () => {
                 <span className='p-1 border-b-2 border-primary'>My <span className='text-primary'>Orders</span></span>
             </h1>
             <div className="overflow-x-auto shadow-md">
-                <table className="table w-full">
+                <table className="table w-full text-center">
                     {/* <!-- head --> */}
                     <thead >
                         <tr>

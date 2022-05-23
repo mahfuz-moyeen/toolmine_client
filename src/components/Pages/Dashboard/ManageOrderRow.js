@@ -56,7 +56,7 @@ const ManageOrderRow = ({ order, index, refetch }) => {
 
                 {
                     (order.paid && order.shipped) &&
-                    <span className=' badge badge-lg badge-success'>Shipped</span>
+                    <span className=' badge badge-lg badge-success mx-3'>Shipped</span>
                 }
 
                 {
