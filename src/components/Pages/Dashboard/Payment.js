@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51L1p8ACcQVA8yAkmETfwkRuFoyz5y3xpDlFcO
 const Payment = () => {
     const { id } = useParams();
 
-    const { data: order, isLoading } = useQuery(['payment', id], () => fetch(`http://localhost:5000/order/${id}`, {
+    const { data: order, isLoading } = useQuery(['payment', id], () => fetch(`https://toolmine-app.herokuapp.com/order/${id}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('token')}`

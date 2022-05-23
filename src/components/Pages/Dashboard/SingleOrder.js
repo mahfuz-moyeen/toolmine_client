@@ -7,7 +7,7 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
     const { _id, productName, img, orderQuantity, price } = order
 
     const handleDeleteOrder = id => {
-        const url = `http://localhost:5000/order/${id}`
+        const url = `https://toolmine-app.herokuapp.com/order/${id}`
         fetch(url, {
             method: 'DELETE',
             headers: {

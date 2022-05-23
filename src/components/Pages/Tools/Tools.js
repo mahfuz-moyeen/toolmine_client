@@ -4,7 +4,7 @@ import Spinner from '../../Shared/Spinner/Spinner';
 import ToolCard from './ToolCard';
 
 const Tools = () => {
-    const { isLoading, data: products } = useQuery('products', () => fetch('http://localhost:5000/products')
+    const { isLoading, data: products } = useQuery('products', () => fetch('https://toolmine-app.herokuapp.com/products')
         .then(res => res.json())
     )
 

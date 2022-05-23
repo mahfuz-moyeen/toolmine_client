@@ -9,7 +9,7 @@ const ManageOrderRow = ({ order, index, refetch }) => {
 
 
     const handleShippedOrder = id => {
-        const url = `http://localhost:5000/shipped/${id}`
+        const url = `https://toolmine-app.herokuapp.com/shipped/${id}`
         fetch(url, {
             method: 'PATCH',
             headers: {
@@ -24,7 +24,7 @@ const ManageOrderRow = ({ order, index, refetch }) => {
     }
 
     const handleDeleteOrder = id => {
-        const url = `http://localhost:5000/order/${id}`
+        const url = `https://toolmine-app.herokuapp.com/order/${id}`
         fetch(url, {
             method: 'DELETE',
             headers: {

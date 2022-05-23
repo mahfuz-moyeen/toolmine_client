@@ -27,7 +27,7 @@ const UpdateProfile = ({ showUser, setShowUser, refetch }) => {
         console.log(data);
         setShowUser(null)
 
-        await fetch(`http://localhost:5000/user/${email}`, {
+        await fetch(`https://toolmine-app.herokuapp.com/user/${email}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

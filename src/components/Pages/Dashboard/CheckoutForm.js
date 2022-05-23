@@ -15,7 +15,7 @@ const CheckoutForm = ({ order }) => {
     const [transactionId, setTransactionId] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://toolmine-app.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -93,7 +93,7 @@ const CheckoutForm = ({ order }) => {
                 orderQuantity: orderQuantity,
                 price: parseInt(price) * parseInt(orderQuantity),
             }
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://toolmine-app.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

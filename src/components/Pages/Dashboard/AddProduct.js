@@ -37,7 +37,7 @@ const AddProduct = () => {
 
 
                     // post to mongodb server
-                    fetch('http://localhost:5000/product', {
+                    fetch('https://toolmine-app.herokuapp.com/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -82,7 +82,7 @@ const AddProduct = () => {
                                 {/*  Product name  */}
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Product Name</span>
+                                        <span className="label-text font-semibold">Product Name</span>
                                     </label>
                                     <input
                                         type="text"
@@ -103,7 +103,7 @@ const AddProduct = () => {
                                 {/* image  */}
                                 <div className="form-control w-full max-w-xs">
                                     <label className="label">
-                                        <span className="label-text">Product Image</span>
+                                        <span className="label-text font-semibold">Product Image</span>
                                     </label>
                                     <input
                                         type="file"
@@ -123,7 +123,7 @@ const AddProduct = () => {
                                 {/* description  */}
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Description</span>
+                                        <span className="label-text font-semibold">Description</span>
                                     </label>
                                     <textarea
                                         type="text"
@@ -153,7 +153,7 @@ const AddProduct = () => {
                                 {/* price  */}
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Product Price ( per item )</span>
+                                        <span className="label-text font-semibold">Product Price ( per item )</span>
                                     </label>
                                     <input
                                         type="number"
@@ -180,7 +180,7 @@ const AddProduct = () => {
                                 {/* minQuantity  */}
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Minimum Quantity</span>
+                                        <span className="label-text font-semibold">Minimum Quantity</span>
                                     </label>
                                     <input
                                         type="number"
@@ -206,7 +206,7 @@ const AddProduct = () => {
                                 {/* availableQuantity  */}
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Available Quantity</span>
+                                        <span className="label-text font-semibold">Available Quantity</span>
                                     </label>
                                     <input
                                         type="number"

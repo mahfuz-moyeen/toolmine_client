@@ -4,7 +4,7 @@ import Spinner from '../../Shared/Spinner/Spinner';
 import SingleReviews from './SingleReviews';
 
 const Reviews = () => {
-    const { isLoading, data: reviews } = useQuery('reviews', () => fetch('http://localhost:5000/reviews')
+    const { isLoading, data: reviews } = useQuery('reviews', () => fetch('https://toolmine-app.herokuapp.com/reviews')
         .then(res => res.json())
     )
 

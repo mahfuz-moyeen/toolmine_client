@@ -5,7 +5,7 @@ import SingleUser from './SingleUser';
 
 const MakeAdmin = () => {
 
-    const { isLoading, data: users, refetch } = useQuery(('users'), () => fetch(`http://localhost:5000/users`, {
+    const { isLoading, data: users, refetch } = useQuery(('users'), () => fetch(`https://toolmine-app.herokuapp.com/users`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('token')}`

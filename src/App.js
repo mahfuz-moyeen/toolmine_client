@@ -24,6 +24,7 @@ import ManageProducts from './components/Pages/Dashboard/ManageProducts';
 import AddProduct from './components/Pages/Dashboard/AddProduct';
 import ManageOrders from './components/Pages/Dashboard/ManageOrders';
 import MyPortfolio from './components/Pages/MyPortfolio/MyPortfolio';
+import NotFound from './components/Shared/NotFound/NotFound';
 
 function App() {
   return (
@@ -58,8 +59,10 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
+
     </div>
   );
 }

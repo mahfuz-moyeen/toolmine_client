@@ -7,7 +7,8 @@ const MyPortfolio = () => {
                 <span className='p-1 border-b-2 border-primary'>My <span className='text-primary'>Portfolio</span></span>
             </h1>
             <div>
-
+                
+                
             </div>
         </div>
     );

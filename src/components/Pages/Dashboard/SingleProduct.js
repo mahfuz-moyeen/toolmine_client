@@ -6,7 +6,7 @@ const SingleProduct = ({ product, index, refetch }) => {
     const { _id, name, price, minQuantity, availableQuantity, img } = product;
 
     const handleDeleteProduct = id => {
-        const url = `http://localhost:5000/product/${id}`
+        const url = `https://toolmine-app.herokuapp.com/product/${id}`
         fetch(url, {
             method: 'DELETE',
             headers: {

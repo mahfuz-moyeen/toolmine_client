@@ -4,7 +4,7 @@ import Spinner from '../../Shared/Spinner/Spinner';
 import SingleProduct from './SingleProduct';
 
 const ManageProducts = () => {
-    const { isLoading, data: products, refetch } = useQuery('products', () => fetch('http://localhost:5000/products', {
+    const { isLoading, data: products, refetch } = useQuery('products', () => fetch('https://toolmine-app.herokuapp.com/products', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('token')}`
         }

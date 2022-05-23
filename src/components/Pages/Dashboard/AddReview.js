@@ -9,7 +9,7 @@ const AddReview = () => {
     const [user] = useAuthState(auth);
 
     const onSubmit = async data => {
-        fetch('http://localhost:5000/review', {
+        fetch('https://toolmine-app.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

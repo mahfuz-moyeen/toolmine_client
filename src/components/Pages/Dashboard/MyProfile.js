@@ -10,7 +10,7 @@ const MyProfile = () => {
     const [user] = useAuthState(auth)
     const [showUser, setShowUser] = useState(null);
 
-    const { isLoading, data, refetch } = useQuery(('user'), () => fetch(`http://localhost:5000/user/${user.email}`, {
+    const { isLoading, data, refetch } = useQuery(('user'), () => fetch(`https://toolmine-app.herokuapp.com/user/${user.email}`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('token')}`

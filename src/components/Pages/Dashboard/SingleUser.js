@@ -8,7 +8,7 @@ const SingleUser = ({ user, index, refetch }) => {
     const { _id, userName, email, role } = user;
 
     const handleMakeAdmin = (id) => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://toolmine-app.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`

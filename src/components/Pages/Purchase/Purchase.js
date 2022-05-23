@@ -14,7 +14,7 @@ const Purchase = () => {
     const [product, setProduct] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://toolmine-app.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id])
@@ -32,7 +32,7 @@ const Purchase = () => {
             orderQuantity: data.items
         }
 
-        await fetch('http://localhost:5000/order', {
+        await fetch('https://toolmine-app.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

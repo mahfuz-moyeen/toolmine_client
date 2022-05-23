@@ -5,7 +5,7 @@ import ManageOrderRow from './ManageOrderRow';
 
 const ManageOrders = () => {
 
-    const { isLoading, data: orders ,refetch} = useQuery('orders', () => fetch('http://localhost:5000/usersOrders', {
+    const { isLoading, data: orders ,refetch} = useQuery('orders', () => fetch('https://toolmine-app.herokuapp.com/usersOrders', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('token')}`
         }

@@ -11,10 +11,10 @@ import BusinessSummary from './BusinessSummary';
 import CountDown from './CountDown';
 
 const Home = () => {
-    const { isLoading, data: products } = useQuery('products', () => fetch('http://localhost:5000/products')
+    const { isLoading, data: products } = useQuery('products', () => fetch('https://toolmine-app.herokuapp.com/products')
         .then(res => res.json())
     )
-    const { reviewLoading, data: reviews } = useQuery('reviews', () => fetch('http://localhost:5000/reviews')
+    const { reviewLoading, data: reviews } = useQuery('reviews', () => fetch('https://toolmine-app.herokuapp.com/reviews')
         .then(res => res.json())
     )
 
