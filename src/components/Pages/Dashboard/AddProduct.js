@@ -163,11 +163,17 @@ const AddProduct = () => {
                                             required: {
                                                 value: true,
                                                 message: 'Product Price is Required'
+                                            },
+                                            pattern: {
+                                                value: /^[1-9]+[0-9]*$/,
+                                                message: 'Positiver number'
                                             }
                                         })}
                                     />
                                     <label className="label">
                                         {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
+
+                                        {errors.price?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
                                     </label>
                                 </div>
 
@@ -184,11 +190,16 @@ const AddProduct = () => {
                                             required: {
                                                 value: true,
                                                 message: 'Product Minimum Quantity Price is Required'
+                                            },
+                                            pattern: {
+                                                value: /^[1-9]+[0-9]*$/,
+                                                message: 'Positiver number'
                                             }
                                         })}
                                     />
                                     <label className="label">
                                         {errors.minQuantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minQuantity.message}</span>}
+                                        {errors.minQuantity?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.minQuantity.message}</span>}
                                     </label>
                                 </div>
 
@@ -205,11 +216,16 @@ const AddProduct = () => {
                                             required: {
                                                 value: true,
                                                 message: 'Product Minimum Quantity Price is Required'
+                                            },
+                                            pattern: {
+                                                value: /^[1-9]+[0-9]*$/,
+                                                message: 'Positiver number'
                                             }
                                         })}
                                     />
                                     <label className="label">
                                         {errors.availableQuantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.availableQuantity.message}</span>}
+                                        {errors.availableQuantity?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.availableQuantity.message}</span>}
                                     </label>
                                 </div>
 
