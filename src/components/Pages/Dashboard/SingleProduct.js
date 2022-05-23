@@ -23,7 +23,13 @@ const SingleProduct = ({ product, index, refetch }) => {
     return (
         <tr>
             <th className='bg-white'>{index + 1}</th>
-            <th className='bg-white'>{index + 1}</th>
+            <td className='bg-white'>
+                <div className="avatar">
+                    <div className="w-16 mask mask-squircle">
+                        <img src={img} alt={name} />
+                    </div>
+                </div>
+            </td>
             <td className='bg-white'>{name}</td>
             <td className='bg-white'>$ {price}</td>
             <td className='bg-white'>{minQuantity}</td>

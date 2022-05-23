@@ -36,9 +36,22 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
             <td className='bg-white'>{orderQuantity}</td>
             <td className='bg-white'>$ {price * orderQuantity}</td>
             <td className='bg-white'>
-                {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} className='btn btn-sm btn-success'>Pay Now</Link>}
+                <div className='flex flex-row justify-center items-center'>
+                    {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`} className='btn btn-sm btn-success'>Pay Now</Link>}
 
-                {(order.price && order.paid) && <p><span className=' badge badge-lg badge-outline badge-success'>Paid</span></p>}
+                    <p>
+                        {(order.price && order.paid) &&
+                            <span className=' badge badge-lg badge-outline badge-success'>Paid</span>
+                        }
+
+                        {order.shipped ?
+                            <span className=' badge badge-lg badge-success mx-2'>Shipped</span>
+                            :
+                            <span className=' badge badge-lg badge-warning mx-2'>Pending</span>
+                        }
+                    </p>
+                </div>
+
                 {order.transactionId && <p><span className='badge my-2 py-1'>Transaction Id: {order.transactionId}</span></p>}
 
             </td>
