@@ -17,7 +17,7 @@ const ToolCard = ({ product }) => {
                         <div className="badge badge-outline">Min Oder:{minQuantity}</div>
                         <div className="badge badge-outline">Stock: {availableQuantity}</div>
                     </div>
-                    <Link to={`tool/${_id}`} className="btn btn-primary">Order</Link>
+                    <Link to={`/tool/${_id}`} className="btn btn-primary">Order</Link>
                 </div>
             </div>
         </div>

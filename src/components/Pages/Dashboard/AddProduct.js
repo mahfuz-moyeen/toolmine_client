@@ -70,7 +70,7 @@ const AddProduct = () => {
                         <h1 className='text-center text-3xl font-semibold'>
                             <span className='p-1 border-b-2 border-primary'>Add <span className='text-primary'>Product</span></span>
                         </h1>
-                        <h1 className='card-title my-2 justify-center'>Hey{user?.displayName},  Your want to add your product?
+                        <h1 className='card-title my-2 justify-center'>Hey {user?.displayName},  Your want to add your product?
                         </h1>
 
                         <form
