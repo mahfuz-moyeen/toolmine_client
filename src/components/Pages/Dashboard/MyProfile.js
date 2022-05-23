@@ -45,6 +45,8 @@ const MyProfile = () => {
                             </div>
                         </div>
 
+                        <p className=" lg:text-lg my-2 p-3 badge badge-success">Role: {data[0].role ? ' Admin' : ' User'}</p>
+
                         <p className=" lg:text-xl my-2"><span className=' font-semibold'>Email: </span> {data[0].email}</p>
 
                         <p className=" lg:text-xl my-2"><span className=' font-semibold'>Phone number: </span> {data[0].phone ? data[0].phone : "No data , please click pencil button to  update  profile"}</p>

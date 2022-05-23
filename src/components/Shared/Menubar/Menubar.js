@@ -16,6 +16,7 @@ const Menubar = () => {
         }
         <li><NavLink to="/reviews">Reviews</NavLink></li>
         <li><NavLink to="/blogs">Blogs</NavLink></li>
+        <li><NavLink to="/my-portfolio">My Portfolio</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
     </>
 

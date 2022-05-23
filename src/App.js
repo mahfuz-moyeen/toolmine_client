@@ -23,6 +23,7 @@ import MakeAdmin from './components/Pages/Dashboard/MakeAdmin';
 import ManageProducts from './components/Pages/Dashboard/ManageProducts';
 import AddProduct from './components/Pages/Dashboard/AddProduct';
 import ManageOrders from './components/Pages/Dashboard/ManageOrders';
+import MyPortfolio from './components/Pages/MyPortfolio/MyPortfolio';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
 
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/blogs" element={<Blog />} />
+        <Route path="/my-portfolio" element={<MyPortfolio />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
