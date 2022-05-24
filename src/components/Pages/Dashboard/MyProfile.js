@@ -33,7 +33,7 @@ const MyProfile = () => {
 
                     <div>
                         <div className='flex justify-between items-center'>
-                            <h2 className="text-xl font-semibold my-5 lg:text-4xl">{data[0].userName}</h2>
+                            <h2 className="text-xl font-semibold my-5 lg:text-4xl">{data[0]?.userName}</h2>
 
                             {/* text edit button  */}
                             <div className="tooltip" data-tip="Text Edit">
@@ -45,18 +45,18 @@ const MyProfile = () => {
                             </div>
                         </div>
 
-                        <p className=" lg:text-lg my-2 p-3 badge badge-success">Role: {data[0].role ? ' Admin' : ' User'}</p>
+                        <p className=" lg:text-lg my-2 p-3 badge badge-success">Role: {data[0]?.role ? ' Admin' : ' User'}</p>
 
-                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Email: </span> {data[0].email}</p>
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Email: </span> {data[0]?.email}</p>
 
-                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Phone number: </span> {data[0].phone ? data[0].phone : "No data , please click pencil button to  update  profile"}</p>
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Phone number: </span> {data[0]?.phone ? data[0].phone : "No data , please click pencil button to  update  profile"}</p>
 
-                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Education: </span> {data[0].education ? data[0].education : "No data , please click pencil button to  update  profile "}</p>
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Education: </span> {data[0]?.education ? data[0].education : "No data , please click pencil button to  update  profile "}</p>
 
-                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Location: </span>{data[0].location ? data[0].location : "No data , please click pencil button to  update  profile"}</p>
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'>Location: </span>{data[0]?.location ? data[0].location : "No data , please click pencil button to  update  profile"}</p>
 
 
-                        <p className=" lg:text-xl my-2"><span className=' font-semibold'> LinkedIn profile: </span>{data[0].linkedIn ? data[0].linkedIn : "No data , please click pencil button to  update  profile"}</p>
+                        <p className=" lg:text-xl my-2"><span className=' font-semibold'> LinkedIn profile: </span>{data[0]?.linkedIn ? data[0].linkedIn : "No data , please click pencil button to  update  profile"}</p>
 
                     </div>
 

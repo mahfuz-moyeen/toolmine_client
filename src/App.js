@@ -26,6 +26,7 @@ import ManageOrders from './components/Pages/Dashboard/ManageOrders';
 import MyPortfolio from './components/Pages/MyPortfolio/MyPortfolio';
 import NotFound from './components/Shared/NotFound/NotFound';
 import RequireAdmin from './components/Pages/Login/RequireAdmin';
+import ContactUs from './components/Pages/ContactUs/ContactUs';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
         <Route path="/blogs" element={<Blog />} />
         <Route path="/my-portfolio" element={<MyPortfolio />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact-us" element={<ContactUs />} />
         
         {/* login  */}
         <Route path="/login" element={<Login />} />
