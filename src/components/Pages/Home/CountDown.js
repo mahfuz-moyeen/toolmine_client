@@ -80,7 +80,7 @@ const CountDown = () => {
                     sec
                 </div>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className='w-10/12 mx-auto' onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control mb-5">
                     <div className="input-group justify-center">
                         <input type="email" placeholder='Your Email' className="border-2 border-primary p-2 max-w-sm lg:w-8/12 text-black"
