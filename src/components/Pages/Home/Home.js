@@ -59,6 +59,10 @@ const Home = () => {
                     }
                 </div>
 
+                <div className='flex justify-center'>
+                    <Link to='reviews' className='btn btn-primary my-5'>See more</Link>
+                </div>
+
             </div>
 
             <CountDown />
