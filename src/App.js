@@ -25,6 +25,7 @@ import AddProduct from './components/Pages/Dashboard/AddProduct';
 import ManageOrders from './components/Pages/Dashboard/ManageOrders';
 import MyPortfolio from './components/Pages/MyPortfolio/MyPortfolio';
 import NotFound from './components/Shared/NotFound/NotFound';
+import RequireAdmin from './components/Pages/Login/RequireAdmin';
 
 function App() {
   return (
@@ -47,16 +48,18 @@ function App() {
           <Route path="add-reviews" element={<AddReview />} />
 
           {/* for add admin  */}
-          <Route path="make-admin" element={<MakeAdmin />} />
-          <Route path="manage-products" element={<ManageProducts />} />
-          <Route path="add-product" element={<AddProduct />} />
-          <Route path="manage-orders" element={<ManageOrders />} />
+          <Route path="make-admin" element={<RequireAdmin><MakeAdmin /></RequireAdmin>} />
+          <Route path="manage-products" element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
+          <Route path="add-product" element={<RequireAdmin><AddProduct /></RequireAdmin>} />
+          <Route path="manage-orders" element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
         </Route>
 
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/blogs" element={<Blog />} />
         <Route path="/my-portfolio" element={<MyPortfolio />} />
         <Route path="/about" element={<About />} />
+        
+        {/* login  */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path='*' element={<NotFound />} />

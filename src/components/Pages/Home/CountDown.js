@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Countdown } from 'react-daisyui';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 
 const CountDown = () => {
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+
     const [value, setValue] = useState(20)
     const [min, setMin] = useState(2);
     const [hour, setHour] = useState(10);
@@ -27,10 +31,27 @@ const CountDown = () => {
         setHour(hour - 1)
         setMin(60)
     }
-    
+
     if (hour === 0) {
         setDay(day - 1)
         setHour(24)
+    }
+
+
+    const onSubmit = async data => {
+        fetch('https://toolmine-app.herokuapp.com/subscribe', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                toast.success('Subscribe done, Then our offer is open we will message your email')
+                reset();
+            })
+
     }
 
     return (
@@ -59,14 +80,25 @@ const CountDown = () => {
                     sec
                 </div>
             </div>
-            <div className="form-control mb-5">
-                <div className="input-group justify-center">
-                    <input type="text" placeholder='Your Email' className="border-2 border-primary p-2 max-w-sm lg:w-8/12 text-black" />
-                    <button className="btn btn-primary">
-                        Subscribe Now
-                    </button>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="form-control mb-5">
+                    <div className="input-group justify-center">
+                        <input type="email" placeholder='Your Email' className="border-2 border-primary p-2 max-w-sm lg:w-8/12 text-black"
+                            {...register("email", {
+                                required: {
+                                    value: true,
+                                    message: 'email is Required'
+                                }
+                            })} />
+                        <label className="label">
+                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                        </label>
+                        <button type='submit' className="btn btn-primary">
+                            Subscribe Now
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }

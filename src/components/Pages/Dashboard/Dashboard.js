@@ -14,7 +14,7 @@ const Dashboard = () => {
             <div className="drawer-content flex gap-2">
                 {/* <!-- Page content here --> */}
 
-                <label htmlFor="dashboard" className="sticky top-0 h-screen bg-primary p-2 flex items-center text-base-100 text-xl font-bold drawer-button lg:hidden"><ChevronDoubleRightIcon className='w-6 h-6 text-white' /> </label>
+                <label htmlFor="dashboard" className="sticky top-0 h-screen bg-neutral p-1 flex items-center text-xl font-bold drawer-button lg:hidden"><ChevronDoubleRightIcon className='w-5 h-5 text-white' /> </label>
 
                 <Outlet />
 

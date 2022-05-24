@@ -1,6 +1,8 @@
 import React from 'react';
 
 const MyPortfolio = () => {
+    
+
     return (
         <div>
             <h1 className='text-white text-center text-3xl font-semibold my-10'>
@@ -8,7 +10,7 @@ const MyPortfolio = () => {
             </h1>
             <div>
                 
-                
+
             </div>
         </div>
     );
