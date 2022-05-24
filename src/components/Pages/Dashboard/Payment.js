@@ -32,7 +32,7 @@ const Payment = () => {
                 buy this products</h2>
             <div className='w-11/12 mx-auto pb-10'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
-                    <div className="card w-full bg-white shadow-xl">
+                    <div className="card w-full max-w-sm lg:max-w-lg  bg-white shadow-xl">
                         <div className='py-10'><h2 className="text-xl text-center">Order Information</h2></div>
                         <figure className="px-10 pt-10">
                             <img src={order?.img} alt="Shoes" className="rounded-xl" />
