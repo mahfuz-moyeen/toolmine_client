@@ -41,7 +41,6 @@ const Purchase = () => {
         })
         .then(res=>res.json())
         .then(date=>{
-            console.log(data);
             toast.success("Successfully, Add Your Purchase Items")
             reset();
         })

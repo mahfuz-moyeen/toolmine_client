@@ -33,7 +33,7 @@ const MyProfile = () => {
 
                     <div>
                         <div className='flex justify-between items-center'>
-                            <h2 className="text-xl font-semibold my-5 lg:text-4xl">{data[0]?.userName}</h2>
+                            <h2 className="text-xl font-semibold my-5 lg:text-4xl">{user?.displayName}</h2>
 
                             {/* text edit button  */}
                             <div className="tooltip" data-tip="Text Edit">

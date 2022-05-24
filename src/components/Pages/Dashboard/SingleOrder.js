@@ -44,11 +44,9 @@ const SingleOrder = ({ order, index, orders, setOrders }) => {
                             <span className=' badge badge-lg badge-outline badge-success'>Paid</span>
                         }
 
-                        {order.shipped ?
-                            <span className=' badge badge-lg badge-success mx-2'>Shipped</span>
-                            :
-                            <span className=' badge badge-lg badge-warning mx-2'>Pending</span>
-                        }
+                        {order.shipped &&
+                            <span className=' badge badge-lg badge-success mx-2'>Shipped</span>}
+                            {(order.paid && !order.shipped) && <span className=' badge badge-lg badge-warning mx-2'>Pending</span>}
                     </p>
                 </div>
 

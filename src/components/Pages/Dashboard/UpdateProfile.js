@@ -24,7 +24,6 @@ const UpdateProfile = ({ showUser, setShowUser, refetch }) => {
             location,
             linkedIn
         }
-        console.log(data);
         setShowUser(null)
 
         await fetch(`https://toolmine-app.herokuapp.com/user/${email}`, {

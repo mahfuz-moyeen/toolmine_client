@@ -7,9 +7,9 @@ const SingleUser = ({ user, index, refetch }) => {
 
     const { _id, userName, email, role } = user;
 
-    const handleMakeAdmin = (id) => {
-        fetch(`https://toolmine-app.herokuapp.com/user/admin/${email}`, {
-            method: 'PUT',
+    const handleMakeAdmin = (userEmail) => {
+        fetch(`https://toolmine-app.herokuapp.com/user/admin/${userEmail}`, {
+            method: 'PATCH',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -44,7 +44,7 @@ const SingleUser = ({ user, index, refetch }) => {
                         <p className=' badge badge-lg badge-success'>Admin</p>
                         :
                         <button >
-                            <label htmlFor="makeAdmin-modal" className="btn btn-accent font-medium" >
+                            <label htmlFor={`makeAdmin${_id}-modal`} className="btn btn-accent font-medium" >
                                 Make Admin
                             </label>
                         </button>
@@ -53,7 +53,7 @@ const SingleUser = ({ user, index, refetch }) => {
                 }
 
                 {/* modal  */}
-                <input type="checkbox" id="makeAdmin-modal" className="modal-toggle" />
+                <input type="checkbox" id={`makeAdmin${_id}-modal`} className="modal-toggle" />
 
                 <div className="modal">
                     <div className="modal-box bg-white">
@@ -62,11 +62,11 @@ const SingleUser = ({ user, index, refetch }) => {
                             <h3 className="mb-5 text-lg font-normal text-gray-500">Are you sure you want to make an admin this User</h3>
                         </div>
                         <div className="modal-action w-full flex justify-evenly">
-                            <button onClick={() => handleMakeAdmin(_id)}>
-                                <label htmlFor="makeAdmin-modal" className="btn btn-success"> Yes, I'm sure</label>
+                            <button onClick={() => handleMakeAdmin(email)}>
+                                <label htmlFor={`makeAdmin${_id}-modal`} className="btn btn-success"> Yes, I'm sure</label>
                             </button>
 
-                            <label htmlFor="makeAdmin-modal" className="btn btn-error">No, cancel</label>
+                            <label htmlFor={`makeAdmin${_id}-modal`} className="btn btn-error">No, cancel</label>
                         </div>
 
                     </div>
