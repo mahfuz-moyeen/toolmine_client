@@ -2,7 +2,7 @@ import React from 'react';
 import Rating from 'react-rating';
 import startFull from '../../../image/rating/star-solid.svg'
 import startEmpty from '../../../image/rating/star-regular.svg'
-import usericon from '../../../image/summery/icon/users-solid.svg'
+import usericon from '../../../image/summery/icon/users.svg'
 
 const SingleReviews = ({ review }) => {
     const { name, userImg, message, rate } = review
