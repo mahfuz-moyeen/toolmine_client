@@ -29,3 +29,4 @@ It is a Hand tools manufacturer website. it's can use user and admin both person
 * react-toastify
 * react-rating
 * react-type-animation
+* swiper.js
