@@ -7,7 +7,7 @@ import usericon from '../../../image/summery/icon/users.svg'
 const SingleReviews = ({ review }) => {
     const { name, userImg, message, rate } = review
     return (
-        <div className="card w-10/12 mx-auto lg:max-w-md bg-white shadow-xl">
+        <div className="card h-80 w-10/12 mx-auto lg:max-w-md bg-white shadow-xl">
             <div className="card-body mx-auto text-center">
 
                 <div className="avatar mx-auto">
@@ -24,7 +24,7 @@ const SingleReviews = ({ review }) => {
                 <p>{message}</p>
                 <div className="card-actions justify-center">
                     <p>Rating:</p>
-                    <Rating
+                    <Rating 
                         initialRating={rate}
                         emptySymbol={<img src={startEmpty} alt='start-empty'
                             className='w-6 h-6'

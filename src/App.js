@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
 import About from './components/Pages/About/About';
 import Home from './components/Pages/Home/Home';
 import Menubar from './components/Shared/Menubar/Menubar';
@@ -27,6 +26,9 @@ import MyPortfolio from './components/Pages/MyPortfolio/MyPortfolio';
 import NotFound from './components/Shared/NotFound/NotFound';
 import RequireAdmin from './components/Pages/Login/RequireAdmin';
 import ContactUs from './components/Pages/ContactUs/ContactUs';
+import "swiper/css/bundle";
+import './App.css';
+
 
 function App() {
   return (
