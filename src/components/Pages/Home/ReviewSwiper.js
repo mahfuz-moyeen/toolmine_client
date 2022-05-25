@@ -23,14 +23,24 @@ export default function ReviewSwiper() {
     return (
         <>
             <Swiper
-                slidesPerView={3}
+                // slidesPerView={3}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    480: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    },
+                }}
                 spaceBetween={30}
                 freeMode={true}
                 autoplay={{
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
-                
+
                 modules={[Autoplay, FreeMode, Pagination]}
                 className="mySwiper"
             >

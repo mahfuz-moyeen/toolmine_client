@@ -15,11 +15,11 @@ const Home = () => {
     const { isLoading, data: products } = useQuery('products', () => fetch('https://toolmine-app.herokuapp.com/products')
         .then(res => res.json())
     )
-    const { reviewLoading, data: reviews } = useQuery('reviews', () => fetch('https://toolmine-app.herokuapp.com/reviews')
-        .then(res => res.json())
-    )
+    // const { reviewLoading, data: reviews } = useQuery('reviews', () => fetch('https://toolmine-app.herokuapp.com/reviews')
+    //     .then(res => res.json())
+    // )
 
-    if (isLoading || reviewLoading) {
+    if (isLoading ) {
         return <Spinner />
     }
 
