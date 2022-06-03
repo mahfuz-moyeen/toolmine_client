@@ -22,7 +22,6 @@ import MakeAdmin from './components/Pages/Dashboard/MakeAdmin';
 import ManageProducts from './components/Pages/Dashboard/ManageProducts';
 import AddProduct from './components/Pages/Dashboard/AddProduct';
 import ManageOrders from './components/Pages/Dashboard/ManageOrders';
-import MyPortfolio from './components/Pages/MyPortfolio/MyPortfolio';
 import NotFound from './components/Shared/NotFound/NotFound';
 import RequireAdmin from './components/Pages/Login/RequireAdmin';
 import ContactUs from './components/Pages/ContactUs/ContactUs';
@@ -59,7 +58,6 @@ function App() {
 
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/blogs" element={<Blog />} />
-        <Route path="/my-portfolio" element={<MyPortfolio />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact-us" element={<ContactUs />} />
         
