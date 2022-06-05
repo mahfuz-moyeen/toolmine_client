@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "img": "./new_product/1.png"
+    },
+    {
+        "id": 2,
+        "img": "./new_product/2.png"
+    },
+    {
+        "id": 3,
+        "img": "./new_product/3.png"
+    },
+    {
+        "id": 4,
+        "img": "./new_product/4.png"
+    }
+]
